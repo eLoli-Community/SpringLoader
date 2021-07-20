@@ -1,0 +1,24 @@
+plugins{
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+repositories {
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation('org.springframework.boot:spring-boot-loader:2.5.2')
+    implementation 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+}
+
+shadowJar {
+    archiveBaseName.set('SpringLoader')
+    archiveClassifier.set('spigot')
+    relocate('org.springframework.boot.loader','com.eloli.spring.boot')
+}
+
+assemble.dependsOn(shadowJar)

@@ -1,0 +1,4 @@
+dependencies {
+    implementation('org.springframework.boot:spring-boot-loader:2.5.2')
+    compileOnly('org.springframework.boot:spring-boot:2.5.2')
+}

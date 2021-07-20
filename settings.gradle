@@ -1,0 +1,6 @@
+rootProject.name = 'SpringLoader'
+include 'core'
+include 'sponge8'
+include 'sponge7'
+include 'spigot'
+

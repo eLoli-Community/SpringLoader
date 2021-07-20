@@ -1,0 +1,4 @@
+name: spring-loader
+version: 1.0-SNAPSHOT
+main: com.eloli.spring.spigot.SpigotCore
+load: STARTUP

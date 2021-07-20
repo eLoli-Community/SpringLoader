@@ -1,0 +1,25 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+repositories {
+    maven {
+        name = 'sponge-repo'
+        url = 'https://repo.spongepowered.org/maven'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spongepowered:spongeapi:7.3.0'
+
+    implementation project(':core')
+    implementation('org.springframework.boot:spring-boot-loader:2.5.2')
+}
+
+shadowJar {
+    archiveBaseName.set('SpringLoader')
+    archiveClassifier.set('sponge7')
+    relocate('org.springframework.boot.loader','com.eloli.spring.boot')
+}
+
+assemble.dependsOn(shadowJar)
